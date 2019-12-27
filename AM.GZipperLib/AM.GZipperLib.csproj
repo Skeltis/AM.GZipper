@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD7A1FEE-23B7-427D-BB02-29CC83C28020}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AM.GZipperLib</RootNamespace>
+    <AssemblyName>AM.GZipperLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Processing\GZipBlockCompresser.cs" />
+    <Compile Include="Processing\IBlockCompresser.cs" />
+    <Compile Include="Processing\IBlockProcessor.cs" />
+    <Compile Include="Processing\IO\ISequentialWriter.cs" />
+    <Compile Include="Processing\IO\SequentialGzipBlockReader.cs" />
+    <Compile Include="Processing\IO\SequentialBlockWriter.cs" />
+    <Compile Include="Processing\IO\SequentialDataBlockReader.cs" />
+    <Compile Include="Processing\IO\ISequentialReader.cs" />
+    <Compile Include="Processing\SequentialBlockProcessor.cs" />
+    <Compile Include="Processing\BlockScribe.cs" />
+    <Compile Include="BlockTasking\IBlockTaskDispatcher.cs" />
+    <Compile Include="BlockTasking\TaskDispatcherFabric.cs" />
+    <Compile Include="DataFormat\BlockInfoField.cs" />
+    <Compile Include="BlockTasking\BlockTask.cs" />
+    <Compile Include="BlockTasking\BlockTaskDispatcher.cs" />
+    <Compile Include="Data\DataBlock.cs" />
+    <Compile Include="DecisionTree\Decision.cs" />
+    <Compile Include="DecisionTree\DecisionCondition.cs" />
+    <Compile Include="DecisionTree\IDecisionNode.cs" />
+    <Compile Include="DataFormat\GZipExtraField.cs" />
+    <Compile Include="DataFormat\GZipExtraFieldExtractor.cs" />
+    <Compile Include="DataFormat\GzipFileInfo.cs" />
+    <Compile Include="Data\IBlock.cs" />
+    <Compile Include="DataFormat\OriginalInfoField.cs" />
+    <Compile Include="IProgressInformer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Processing\SharedProcessState.cs" />
+    <Compile Include="SystemInfoProvider.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="CompressionConfig.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
